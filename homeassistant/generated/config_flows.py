@@ -348,6 +348,7 @@ FLOWS = {
         "ipma",
         "ipp",
         "iqvia",
+        "ir_candle",
         "irm_kmi",
         "iron_os",
         "iskra",
