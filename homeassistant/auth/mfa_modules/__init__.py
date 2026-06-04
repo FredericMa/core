@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 import types
-from typing import Generic, Any, Generic, Generic, TypeVar
+from typing import Generic, Any, Generic, TypeVar
 
 import voluptuous as vol
 from voluptuous.humanize import humanize_error
@@ -97,7 +97,7 @@ class MultiFactorAuthModule:
 
 _MultiFactorAuthModuleT = TypeVar("_MultiFactorAuthModuleT", bound=MultiFactorAuthModule)
 
-class SetupFlow(Generic[_MultiFactorAuthModuleT],
+class SetupFlow(
     data_entry_flow.FlowHandler
 ):
     """Handler for the setup flow."""
