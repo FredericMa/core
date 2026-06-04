@@ -1,8 +1,9 @@
 """Common entity for Logitech Z-5500 IR integration."""
 
-import logging
+from __future__ import annotations
 
-from infrared_protocols import Command as InfraredCommand, NECCommand
+import logging
+from typing import TYPE_CHECKING
 
 from homeassistant.components.infrared import async_send_command
 from homeassistant.config_entries import ConfigEntry
@@ -14,11 +15,16 @@ from homeassistant.helpers.event import async_track_state_change_event
 
 from .const import DOMAIN, Z5500_NEC_ADDRESS, Z5500Code
 
+if TYPE_CHECKING:
+    from infrared_protocols import Command as InfraredCommand
+
 _LOGGER = logging.getLogger(__name__)
 
 
 def make_z5500_command(code: Z5500Code, repeat_count: int = 0) -> InfraredCommand:
     """Get the NECCommand for a Logitech Z-5500 IR code."""
+    from infrared_protocols import NECCommand  # noqa: PLC0415
+
     return NECCommand(
         address=Z5500_NEC_ADDRESS,
         command=code,
