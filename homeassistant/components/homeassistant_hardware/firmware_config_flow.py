@@ -254,7 +254,7 @@ class BaseFirmwareInstallFlow(ConfigEntryBaseFlow, ABC):
                 fw_manifest = next(
                     fw for fw in manifest.firmwares if fw.filename.startswith(fw_type)
                 )
-            except (StopIteration, TimeoutError, ClientError, ManifestMissing) as err:
+            except (StopIteration, TimeoutError, ClientError, ManifestMissing) as err):
                 _LOGGER.warning(
                     "Failed to fetch firmware update manifest", exc_info=True
                 )

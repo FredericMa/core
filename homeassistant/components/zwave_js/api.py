@@ -1953,7 +1953,7 @@ async def websocket_set_config_parameter(
         zwave_value, cmd_status = await async_set_config_parameter(
             node, value, property_, property_key=property_key, endpoint=endpoint
         )
-    except (InvalidNewValue, NotFoundError, NotImplementedError, SetValueFailed) as err:
+    except (InvalidNewValue, NotFoundError, NotImplementedError, SetValueFailed) as err):
         code = ERR_UNKNOWN_ERROR
         if isinstance(err, NotFoundError):
             code = ERR_NOT_FOUND

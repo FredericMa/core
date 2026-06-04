@@ -29,7 +29,7 @@ async def validate_connection(hass: HomeAssistant, host: str) -> RadioThermInitD
     """Validate the connection."""
     try:
         return await async_get_init_data(hass, host)
-    except (TimeoutError, RadiothermTstatError, URLError, OSError) as ex:
+    except (TimeoutError, RadiothermTstatError, URLError, OSError) as ex):
         raise CannotConnect(f"Failed to connect to {host}: {ex}") from ex
 
 

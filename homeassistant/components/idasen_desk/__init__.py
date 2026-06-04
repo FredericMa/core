@@ -30,7 +30,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: IdasenDeskConfigEntry) -
     try:
         if not await coordinator.async_connect():
             raise ConfigEntryNotReady(f"Unable to connect to desk {address}")  # noqa: TRY301
-    except (AuthFailedError, TimeoutError, BleakError, Exception) as ex:
+    except (AuthFailedError, TimeoutError, BleakError, Exception) as ex):
         raise ConfigEntryNotReady(f"Unable to connect to desk {address}") from ex
 
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)

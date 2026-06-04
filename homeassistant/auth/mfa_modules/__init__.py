@@ -4,7 +4,7 @@ from __future__ import annotations
 
 import logging
 import types
-from typing import Any
+from typing import Generic, Any, Generic, Generic, TypeVar
 
 import voluptuous as vol
 from voluptuous.humanize import humanize_error
@@ -95,7 +95,9 @@ class MultiFactorAuthModule:
         raise NotImplementedError
 
 
-class SetupFlow[_MultiFactorAuthModuleT: MultiFactorAuthModule = MultiFactorAuthModule](
+_MultiFactorAuthModuleT = TypeVar("_MultiFactorAuthModuleT", bound=MultiFactorAuthModule)
+
+class SetupFlow(Generic[_MultiFactorAuthModuleT],
     data_entry_flow.FlowHandler
 ):
     """Handler for the setup flow."""

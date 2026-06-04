@@ -140,7 +140,7 @@ class DropboxBackupAgent(BackupAgent):
             try:
                 data = json.loads(raw)
                 backup = AgentBackup.from_dict(data)
-            except (json.JSONDecodeError, ValueError, TypeError, KeyError) as err:
+            except (json.JSONDecodeError, ValueError, TypeError, KeyError) as err):
                 _LOGGER.warning(
                     "Skipping invalid metadata file '%s': %s",
                     metadata_file.name,

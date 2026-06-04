@@ -388,7 +388,7 @@ class ConfigSubentry:
         }
 
 
-class ConfigEntry[_DataT = Any]:
+class ConfigEntry:
     """Hold a configuration entry."""
 
     entry_id: str
@@ -874,7 +874,7 @@ class ConfigEntry[_DataT = Any]:
             )
 
         # pylint: disable-next=broad-except
-        except SystemExit, Exception:
+        except (SystemExit, Exception):
             _LOGGER.exception(
                 "Error setting up entry %s for %s", self.title, integration.domain
             )

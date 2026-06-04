@@ -785,7 +785,7 @@ class ZWaveLegacyDoorStateBinarySensor(ZWaveBaseEntity, BinarySensorEntity):
             return self.entity_description.parse_opening_state(
                 OpeningState(int(opening_state))
             )
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             return None
 
 
@@ -848,7 +848,7 @@ class ZWaveOpeningStateBinarySensor(ZWaveBaseEntity, BinarySensorEntity):
             return None
         try:
             return self.entity_description.parse_opening_state(OpeningState(int(value)))
-        except TypeError, ValueError:
+        except (TypeError, ValueError):
             return None
 
 

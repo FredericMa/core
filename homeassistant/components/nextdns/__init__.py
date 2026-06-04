@@ -84,7 +84,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: NextDnsConfigEntry) -> b
     websession = async_get_clientsession(hass)
     try:
         nextdns = await NextDns.create(websession, api_key)
-    except (ApiError, ClientConnectorError, RetryError, TimeoutError) as err:
+    except (ApiError, ClientConnectorError, RetryError, TimeoutError) as err):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
             translation_key="cannot_connect",

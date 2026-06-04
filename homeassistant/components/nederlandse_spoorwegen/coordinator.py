@@ -92,7 +92,7 @@ class NSDataUpdateCoordinator(DataUpdateCoordinator[NSRouteResult]):
                 departure_time=self.departure_time,
             )
 
-        except (ConnectionError, Timeout, HTTPError, ValueError) as err:
+        except (ConnectionError, Timeout, HTTPError, ValueError) as err):
             # Surface API failures to Home Assistant so the entities become unavailable
             raise UpdateFailed(f"API communication error: {err}") from err
 

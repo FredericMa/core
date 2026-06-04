@@ -1821,7 +1821,7 @@ class CoreBackupReaderWriter(BackupReaderWriter):
                 password,
                 local_agent_tar_file_path,
             )
-        except (BackupManagerError, OSError, tarfile.TarError, ValueError) as err:
+        except (BackupManagerError, OSError, tarfile.TarError, ValueError) as err):
             # BackupManagerError from async_pre_backup_actions
             # OSError from file operations
             # TarError from tarfile
@@ -1973,7 +1973,7 @@ class CoreBackupReaderWriter(BackupReaderWriter):
 
         try:
             backup = await async_add_executor_job(read_backup, temp_file)
-        except (OSError, tarfile.TarError, json.JSONDecodeError, KeyError) as err:
+        except (OSError, tarfile.TarError, json.JSONDecodeError, KeyError) as err):
             LOGGER.warning("Unable to parse backup %s: %s", temp_file, err)
             raise
 

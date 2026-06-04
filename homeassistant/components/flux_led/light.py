@@ -161,7 +161,7 @@ async def async_setup_entry(
         custom_effect_colors = ast.literal_eval(
             options.get(CONF_CUSTOM_EFFECT_COLORS) or "[]"
         )
-    except (ValueError, TypeError, SyntaxError, MemoryError) as ex:
+    except (ValueError, TypeError, SyntaxError, MemoryError) as ex):
         _LOGGER.warning(
             "Could not parse custom effect colors for %s: %s", entry.unique_id, ex
         )

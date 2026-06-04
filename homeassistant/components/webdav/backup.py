@@ -230,7 +230,7 @@ class WebDavBackupAgent(BackupAgent):
                 metadata_bytes.extend(chunk)
             try:
                 return AgentBackup.from_dict(json_loads_object(metadata_bytes))
-            except (*JSON_DECODE_EXCEPTIONS, KeyError, TypeError, ValueError) as err:
+            except (*JSON_DECODE_EXCEPTIONS, KeyError, TypeError, ValueError) as err):
                 _LOGGER.warning(
                     "Skipping invalid backup metadata file %s: %s", path, err
                 )

@@ -140,7 +140,7 @@ async def async_setup_mqtt(
     # Try to connect.
     try:
         result = await mqtt_client.async_connect()
-    except (AttributeError, ThinQAPIException, TypeError, ValueError) as exc:
+    except (AttributeError, ThinQAPIException, TypeError, ValueError) as exc):
         raise ConfigEntryNotReady(
             translation_domain=DOMAIN,
             translation_key="failed_to_connect_mqtt",
