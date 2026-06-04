@@ -291,7 +291,7 @@ class SonosSpeaker:
         else:
             try:
                 value = int(state)
-            except TypeError, ValueError:
+            except (TypeError, ValueError):
                 _LOGGER.error(
                     "Invalid value for %s %s",
                     speaker_attribute,
@@ -1135,7 +1135,7 @@ class SonosSpeaker:
         try:
             assert self.soco_snapshot is not None
             self.soco_snapshot.restore()
-        except (TypeError, AssertionError, AttributeError, SoCoException) as ex:
+        except (TypeError, AssertionError, AttributeError, SoCoException) as ex):
             # Can happen if restoring a coordinator onto a current group member
             _LOGGER.warning("Error on restore %s: %s", self.zone_name, ex)
 

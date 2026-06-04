@@ -105,7 +105,7 @@ async def test_connection(hass: HomeAssistant, host: str, port: int) -> str:
     try:
         await asyncio.wait_for(madvr_client.open_connection(), timeout=15)
     # connection can raise HeartBeatError if the device is not available or connection does not work
-    except (TimeoutError, aiohttp.ClientError, OSError, HeartBeatError) as err:
+    except (TimeoutError, aiohttp.ClientError, OSError, HeartBeatError) as err):
         _LOGGER.error("Error connecting to madVR: %s", err)
         raise CannotConnect from err
 

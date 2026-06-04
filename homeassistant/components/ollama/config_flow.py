@@ -115,7 +115,7 @@ class OllamaConfigFlow(ConfigFlow, domain=DOMAIN):
                     str(err),
                 )
                 errors["base"] = "unknown"
-        except TimeoutError, httpx.ConnectError:
+        except (TimeoutError, httpx.ConnectError):
             errors["base"] = "cannot_connect"
         except Exception:
             _LOGGER.exception("Unexpected exception")
@@ -273,7 +273,7 @@ class OllamaSubentryFlowHandler(ConfigSubentryFlow):
                 downloaded_models: set[str] = {
                     model_info["model"] for model_info in response.get("models", [])
                 }
-            except TimeoutError, httpx.ConnectError, httpx.HTTPError:
+            except (TimeoutError, httpx.ConnectError, httpx.HTTPError):
                 _LOGGER.exception("Failed to get models from Ollama server")
                 return self.async_abort(reason="cannot_connect")
 

@@ -1472,7 +1472,7 @@ async def test_async_get_component_concurrent_loads(hass: HomeAssistant) -> None
 async def test_async_get_component_deadlock_fallback(
     hass: HomeAssistant, caplog: pytest.LogCaptureFixture
 ) -> None:
-    """Verify async_get_component fallback to importing in the event loop on deadlock."""
+    """Verify async_get_component fallback to the general purpose executor on deadlock."""
     executor_import_integration = _get_test_integration(
         hass, "executor_import", True, import_executor=True
     )
@@ -1553,7 +1553,7 @@ async def test_async_get_component_deadlock_fallback_module_not_found(
 async def test_async_get_component_raises_after_import_failure(
     hass: HomeAssistant, caplog: pytest.LogCaptureFixture
 ) -> None:
-    """Verify async_get_component raises if we fail to import in both the executor and loop."""
+    """Verify async_get_component raises if we fail to import in both executors."""
     executor_import_integration = _get_test_integration(
         hass, "executor_import", True, import_executor=True
     )
@@ -1594,7 +1594,7 @@ async def test_async_get_component_raises_after_import_failure(
 async def test_async_get_platform_deadlock_fallback(
     hass: HomeAssistant, caplog: pytest.LogCaptureFixture
 ) -> None:
-    """Verify async_get_platform fallback to importing in the event loop on deadlock."""
+    """Verify async_get_platform fallback to the general purpose executor on deadlock."""
     executor_import_integration = _get_test_integration(
         hass, "executor_import", True, import_executor=True
     )
@@ -1624,9 +1624,10 @@ async def test_async_get_platform_deadlock_fallback(
         "Detected deadlock trying to import homeassistant.components.executor_import"
         in caplog.text
     )
-    # We should have tried both the executor and loop
+    # We should have tried the executor
     assert "executor=['config_flow']" in caplog.text
-    assert "loop=['config_flow']" in caplog.text
+    # The fallback uses the general purpose executor, not the event loop
+    assert "loop=['config_flow']" not in caplog.text
     assert module is module_mock
 
 
@@ -1679,7 +1680,7 @@ async def test_async_get_platform_deadlock_fallback_module_not_found(
 async def test_async_get_platform_raises_after_import_failure(
     hass: HomeAssistant, caplog: pytest.LogCaptureFixture
 ) -> None:
-    """Verify async_get_platform raises if we fail to import in both the executor and loop."""
+    """Verify async_get_platform raises if we fail to import in both executors."""
     executor_import_integration = _get_test_integration(
         hass, "executor_import", True, import_executor=True
     )

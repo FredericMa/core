@@ -37,7 +37,7 @@ from .typing import UNDEFINED, UndefinedType
 REQUEST_REFRESH_DEFAULT_COOLDOWN = 10
 REQUEST_REFRESH_DEFAULT_IMMEDIATE = True
 
-_DataT = TypeVar("_DataT", default=dict[str, Any])
+_DataT = TypeVar("_DataT", )
 
 
 class UpdateFailed(HomeAssistantError):

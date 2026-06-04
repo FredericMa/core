@@ -56,7 +56,7 @@ class CoreLocalBackupAgent(LocalBackupAgent):
             try:
                 backup = read_backup(backup_path)
                 backups[backup.backup_id] = (backup, backup_path)
-            except (OSError, TarError, json.JSONDecodeError, KeyError) as err:
+            except (OSError, TarError, json.JSONDecodeError, KeyError) as err):
                 LOGGER.warning("Unable to read backup %s: %s", backup_path, err)
         return backups
 

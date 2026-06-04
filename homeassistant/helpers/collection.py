@@ -445,7 +445,7 @@ _GROUP_BY_KEY = attrgetter("change_type")
 
 
 @dataclass(slots=True, frozen=True)
-class _CollectionLifeCycle[_EntityT: Entity = Entity]:
+class _CollectionLifeCycle:
     """Life cycle for a collection of entities."""
 
     domain: str

@@ -57,7 +57,7 @@ class IstaConfigFlow(ConfigFlow, domain=DOMAIN):
                 info = ista.get_account()
             except ServerError:
                 errors["base"] = "cannot_connect"
-            except LoginError, KeycloakError:
+            except (LoginError, KeycloakError):
                 errors["base"] = "invalid_auth"
             except Exception:
                 _LOGGER.exception("Unexpected exception")
@@ -117,7 +117,7 @@ class IstaConfigFlow(ConfigFlow, domain=DOMAIN):
 
             except ServerError:
                 errors["base"] = "cannot_connect"
-            except LoginError, KeycloakError:
+            except (LoginError, KeycloakError):
                 errors["base"] = "invalid_auth"
             except Exception:
                 _LOGGER.exception("Unexpected exception")

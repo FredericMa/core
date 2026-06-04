@@ -115,7 +115,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
                 except requests.exceptions.RequestException as ex:
                     _LOGGER.debug("Network error during credential update: %s", ex)
                     errors["base"] = ERROR_CANNOT_CONNECT
-                except (ValueError, KeyError, TypeError, AttributeError) as ex:
+                except (ValueError, KeyError, TypeError, AttributeError) as ex):
                     _LOGGER.debug(
                         "Invalid response format during credential update: %s", ex
                     )
@@ -157,7 +157,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
                             err.error_code,
                         )
                         errors["base"] = ERROR_CANNOT_CONNECT
-                except (ValueError, KeyError, TypeError, AttributeError) as ex:
+                except (ValueError, KeyError, TypeError, AttributeError) as ex):
                     _LOGGER.debug(
                         "Invalid response format during credential update: %s", ex
                     )
@@ -252,7 +252,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
         except requests.exceptions.RequestException as ex:
             _LOGGER.error("Network error during Growatt API login: %s", ex)
             return self._async_show_password_form({"base": ERROR_CANNOT_CONNECT})
-        except (ValueError, KeyError, TypeError, AttributeError) as ex:
+        except (ValueError, KeyError, TypeError, AttributeError) as ex):
             _LOGGER.error("Invalid response format during login: %s", ex)
             return self._async_show_password_form({"base": ERROR_CANNOT_CONNECT})
 
@@ -301,7 +301,7 @@ class GrowattServerConfigFlow(ConfigFlow, domain=DOMAIN):
             if e.error_code == V1_API_ERROR_NO_PRIVILEGE:
                 return self._async_show_token_form({"base": ERROR_INVALID_AUTH})
             return self._async_show_token_form({"base": ERROR_CANNOT_CONNECT})
-        except (ValueError, KeyError, TypeError, AttributeError) as ex:
+        except (ValueError, KeyError, TypeError, AttributeError) as ex):
             _LOGGER.error(
                 "Invalid response format during Growatt V1 API plant list: %s", ex
             )

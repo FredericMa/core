@@ -1030,9 +1030,13 @@ class Integration:
                 _LOGGER.debug(
                     "Failed to import %s in executor", self.domain, exc_info=ex
                 )
-                # If importing in the executor deadlocks because there is a circular
-                # dependency, we fall back to the event loop.
-                comp = self._get_component()
+                # If importing in the executor deadlocks because there is a
+                # circular dependency, we fall back to the general purpose
+                # executor which has multiple threads and avoids blocking
+                # the event loop.
+                comp = await self.hass.async_add_executor_job(
+                    self._get_component
+                )
             self._component_future.set_result(comp)
         except BaseException as ex:
             self._component_future.set_exception(ex)
@@ -1173,9 +1177,15 @@ class Integration:
                             load_executor_platforms,
                             exc_info=ex,
                         )
-                        # If importing in the executor deadlocks because there is a circular
-                        # dependency, we fall back to the event loop.
-                        load_event_loop_platforms.extend(load_executor_platforms)
+                        # If importing in the executor deadlocks because there
+                        # is a circular dependency, we fall back to the general
+                        # purpose executor which has multiple threads and avoids
+                        # blocking the event loop.
+                        platforms.update(
+                            await self.hass.async_add_executor_job(
+                                self._load_platforms, load_executor_platforms
+                            )
+                        )
 
                 if load_event_loop_platforms:
                     platforms.update(self._load_platforms(platform_names))

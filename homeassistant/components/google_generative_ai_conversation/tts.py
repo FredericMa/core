@@ -236,7 +236,7 @@ class GoogleGenerativeAITextToSpeechEntity(
             )
 
             data, mime_type = _extract_audio_parts(response)
-        except (APIError, ClientError, ValueError, TypeError) as exc:
+        except (APIError, ClientError, ValueError, TypeError) as exc):
             LOGGER.error("Error during TTS: %s", exc, exc_info=True)
             raise HomeAssistantError(exc) from exc
         return "wav", convert_to_wav(data, mime_type)

@@ -142,7 +142,7 @@ def _system_target_temperature(device: Appliance) -> float | None:
         return None
     try:
         return float(target)
-    except TypeError, ValueError:
+    except (TypeError, ValueError):
         return None
 
 
@@ -152,7 +152,7 @@ def _zone_temperature_from_list(values: list[str], zone_id: int) -> float | None
         return None
     try:
         return float(values[zone_id])
-    except TypeError, ValueError:
+    except (TypeError, ValueError):
         return None
 
 
@@ -484,7 +484,7 @@ class DaikinZoneClimate(DaikinEntity, ClimateEntity):
         zone_value = str(round(temperature_value))
         try:
             await self.device.set_zone(self._zone_id, zone_key, zone_value)
-        except (AttributeError, KeyError, NotImplementedError, TypeError) as err:
+        except (AttributeError, KeyError, NotImplementedError, TypeError) as err):
             raise _zone_error("zone_set_failed") from err
 
         await self.coordinator.async_request_refresh()
