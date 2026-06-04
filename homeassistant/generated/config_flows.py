@@ -406,6 +406,7 @@ FLOWS = {
         "local_todo",
         "locative",
         "lojack",
+        "logitech_z5500_infrared",
         "london_underground",
         "lookin",
         "loqed",

@@ -997,6 +997,8 @@ CLAUDE.md @home-assistant/core
 /tests/components/logger/ @home-assistant/core
 /homeassistant/components/lojack/ @devinslick
 /tests/components/lojack/ @devinslick
+/homeassistant/components/logitech_z5500_infrared/ @home-assistant/core
+/tests/components/logitech_z5500_infrared/ @home-assistant/core
 /homeassistant/components/london_underground/ @jpbede
 /tests/components/london_underground/ @jpbede
 /homeassistant/components/lookin/ @ANMalko @bdraco

@@ -342,6 +342,7 @@ homeassistant.components.local_todo.*
 homeassistant.components.lock.*
 homeassistant.components.logbook.*
 homeassistant.components.logger.*
+homeassistant.components.logitech_z5500_infrared.*
 homeassistant.components.london_underground.*
 homeassistant.components.lookin.*
 homeassistant.components.lovelace.*
