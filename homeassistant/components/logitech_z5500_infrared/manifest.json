@@ -1,0 +1,11 @@
+{
+  "domain": "logitech_z5500_infrared",
+  "name": "Logitech Z-5500 Infrared",
+  "codeowners": ["@home-assistant/core"],
+  "config_flow": true,
+  "dependencies": ["infrared"],
+  "documentation": "https://www.home-assistant.io/integrations/logitech_z5500_infrared",
+  "integration_type": "device",
+  "iot_class": "assumed_state",
+  "quality_scale": "silver"
+}

@@ -1,0 +1,63 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "This Logitech Z-5500 has already been configured with this transmitter.",
+      "no_emitters": "No infrared transmitter entities found. Please set up an infrared device first."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "infrared_entity_id": "Infrared transmitter"
+        },
+        "data_description": {
+          "infrared_entity_id": "The infrared transmitter entity to use for sending commands."
+        },
+        "description": "Select the infrared transmitter entity to use for controlling your Logitech Z-5500.",
+        "title": "Set up Logitech Z-5500 IR Remote"
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "center_down": {
+        "name": "Center down"
+      },
+      "center_up": {
+        "name": "Center up"
+      },
+      "coax": {
+        "name": "Coaxial"
+      },
+      "direct": {
+        "name": "Direct"
+      },
+      "effect": {
+        "name": "Effect"
+      },
+      "optical": {
+        "name": "Optical"
+      },
+      "power": {
+        "name": "Power"
+      },
+      "setup": {
+        "name": "Settings"
+      },
+      "subwoofer_down": {
+        "name": "Subwoofer down"
+      },
+      "subwoofer_up": {
+        "name": "Subwoofer up"
+      },
+      "surround_down": {
+        "name": "Surround down"
+      },
+      "surround_up": {
+        "name": "Surround up"
+      },
+      "test": {
+        "name": "Test"
+      }
+    }
+  }
+}

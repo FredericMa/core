@@ -1,5 +1,5 @@
 {
   "domain": "logitech",
   "name": "Logitech",
-  "integrations": ["harmony", "squeezebox"]
+  "integrations": ["harmony", "logitech_z5500_infrared", "squeezebox"]
 }
