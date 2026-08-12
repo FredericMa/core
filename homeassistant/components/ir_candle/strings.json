@@ -1,0 +1,41 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "This IR candle has already been configured with this transmitter.",
+      "no_emitters": "No infrared transmitter entities found. Please set up an infrared device first."
+    },
+    "step": {
+      "user": {
+        "data": {
+          "infrared_entity_id": "Infrared transmitter"
+        },
+        "data_description": {
+          "infrared_entity_id": "The infrared transmitter entity to use for sending commands to the candle."
+        },
+        "description": "Select the infrared transmitter entity to use for controlling your IR candle.",
+        "title": "Set up IR Candle"
+      }
+    }
+  },
+  "entity": {
+    "button": {
+      "timer_4h": {
+        "name": "Timer 4 hours"
+      },
+      "timer_8h": {
+        "name": "Timer 8 hours"
+      },
+      "candle_mode": {
+        "name": "Candle mode"
+      },
+      "light_mode": {
+        "name": "Light mode"
+      }
+    },
+    "light": {
+      "candle": {
+        "name": "Candle"
+      }
+    }
+  }
+}
